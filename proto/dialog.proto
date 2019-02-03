@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package dialog;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc GetInfo (UrlNameRequest) returns (UrlNameReply) {}
+  rpc GetMaxMinPing (Empty) returns (MaxMinPingReply) {}
+  rpc RequestStat (Empty) returns (RequestStatReply) {}
+}
+
+// The request message containing the user's name.
+message UrlNameRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message UrlNameReply {
+  string Url = 1;
+  int32 StatusCode = 2;
+  int64 PingTime = 3;
+}
+
+message MaxMinPingReply {
+  string name = 1;
+}
+
+message RequestStatReply {
+  string name = 1;
+}
+
+message Empty {}
