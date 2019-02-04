@@ -15,14 +15,14 @@ const (
 )
 
 var (
-	statS services.StatisticService
+	statS *services.StatisticService
 )
 
 // server is used to implement helloworld.GreeterServer.
 func main() {
 	pingS := services.NewPingService()
 	fileS := services.NewFileService("conf/sites.txt")
-	statS := services.NewStatisticService()
+	statS = services.NewStatisticService()
 
 	pingS.AddHandler(statS.Ping)
 	fileS.AddHandler(pingS.UrlString)

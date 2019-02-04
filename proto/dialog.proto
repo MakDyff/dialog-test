@@ -23,11 +23,18 @@ message UrlNameReply {
 }
 
 message MaxMinPingReply {
-  string name = 1;
+  message PhoneNumber {
+    string Url = 1;
+    int64 PingTime = 3;
+  }
+
+  PhoneNumber Max = 1;
+  PhoneNumber Min = 2;
 }
 
 message RequestStatReply {
-  string name = 1;
+  repeated UrlNameReply RequestStat1 = 1;
+  repeated MaxMinPingReply RequestStat2 = 2;
 }
 
 message Empty {}
